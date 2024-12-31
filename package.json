@@ -8,7 +8,8 @@
     "build": "pnpm -r run build",
     "script:generate": "esno scripts/index.ts",
     "dev:extension": "pnpm -F @zh-translator/extension run dev",
-    "build:extension": "pnpm -F @zh-translator/extension run dev",
+    "build:extension": "pnpm -F @zh-translator/extension run build",
+    "build:zh-translator": "pnpm -F zh-translator run build",
     "dev:zh-translator": "pnpm -F zh-translator run dev",
     "dev": "npm-run-all --parallel dev:*"
   },
