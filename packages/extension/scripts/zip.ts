@@ -12,6 +12,7 @@ function run() {
   zip.addLocalFolder('./data', 'data')
   zip.addLocalFolder('./dist', 'dist')
   zip.addLocalFolder('./icons', 'icons')
+  zip.addLocalFolder('./style', 'style')
   zip.writeZip(`./build/zh-translator-v${manifest.version}.zip`)
 }
 
