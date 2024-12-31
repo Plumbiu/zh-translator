@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "离线翻译",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "用于英文单词的离线翻译库",
   "icons": {
     "16": "icons/icon_16.png",
