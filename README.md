@@ -14,4 +14,4 @@
 
 # 感谢
 
-数据来源： [vscode_english_chinese_dictionary](https://github.com/program-in-chinese/vscode_english_chinese_dictionary)
+- 数据来源： [vscode_english_chinese_dictionary](https://github.com/program-in-chinese/vscode_english_chinese_dictionary)
