@@ -1,5 +1,8 @@
 name: Realase
 
+permissions:
+  contents: write
+
 on:
   push:
     tags:
