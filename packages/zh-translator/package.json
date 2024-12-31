@@ -1,0 +1,31 @@
+{
+  "name": "zh-translator",
+  "version": "0.0.1",
+  "description": "离线中文翻译库",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "vitest",
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "sideEffects": false,
+  "files": [
+    "data",
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Plumbiu/zh-translator"
+  },
+  "keywords": [
+    "translate",
+    "中文",
+    "翻译",
+    "离线",
+    "字典"
+  ],
+  "author": "Plumbiu",
+  "license": "MIT"
+}

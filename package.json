@@ -1,0 +1,27 @@
+{
+  "name": "zh-translator-monorepo",
+  "version": "0.0.1",
+  "description": "离线中文翻译库",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "build": "pnpm -r run build",
+    "script:generate": "esno scripts/index.ts",
+    "dev:extension": "pnpm -F @zh-translator/extension run dev",
+    "build:extension": "pnpm -F @zh-translator/extension run dev",
+    "dev:zh-translator": "pnpm -F zh-translator run dev",
+    "dev": "npm-run-all --parallel dev:*"
+  },
+  "author": "Plumbiu",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "npm-run-all2": "^7.0.2",
+    "picocolors": "^1.1.1",
+    "terser": "^5.37.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "unbuild": "^3.0.1",
+    "vitest": "^2.1.8"
+  }
+}

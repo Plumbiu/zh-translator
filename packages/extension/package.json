@@ -1,0 +1,18 @@
+{
+  "name": "@zh-translator/extension",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "build": "tsup",
+    "postbuild": "esno ./scripts/zip.ts",
+    "dev": "tsup --watch"
+  },
+  "dependencies": {
+    "zh-translator": "workspace:^"
+  },
+  "devDependencies": {
+    "@types/adm-zip": "^0.5.7",
+    "@types/chrome": "^0.0.287",
+    "adm-zip": "^0.5.16"
+  }
+}
