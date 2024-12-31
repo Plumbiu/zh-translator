@@ -1,5 +1,7 @@
 # zh-translator
 
+前往 [Release](https://github.com/Plumbiu/zh-translator/releases) 页下载
+
 > [!NOTE]
 > 不翻译长句，只翻译单词，只支持 ESM，因为用了动态导入 [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import)
 
