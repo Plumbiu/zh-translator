@@ -17,6 +17,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^22.10.2",
+    "esno": "^4.8.0",
     "npm-run-all2": "^7.0.2",
     "picocolors": "^1.1.1",
     "terser": "^5.37.0",
