@@ -1,12 +1,11 @@
 import { defineConfig } from 'tsup'
 
 export default defineConfig({
-  entry: ['lib/index.ts', 'lib/service_worker.ts'],
-  splitting: true,
+  entry: ['./lib/index.ts', './lib/service_worker.ts'],
   format: 'esm',
   clean: true,
   bundle: true,
-  minify: true,
-  external: [/data/],
-  noExternal: ['zh-translator'],
+  minify: false,
+  splitting: false,
+  noExternal: ['types'],
 })

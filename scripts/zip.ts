@@ -1,19 +1,28 @@
 import fs from 'node:fs'
+import zlib from 'node:zlib'
 import Zip from 'adm-zip'
-import manifest from '../src/manifest.json'
+import manifest from '../manifest.json'
 
-function run() {
+function zipSync() {
   if (fs.existsSync('./build')) {
     fs.rmSync('./build', { recursive: true })
   }
   fs.mkdirSync('./build')
   const zip = new Zip()
   zip.addLocalFile('./manifest.json')
-  zip.addLocalFolder('./data', 'data')
   zip.addLocalFolder('./dist', 'dist')
   zip.addLocalFolder('./icons', 'icons')
   zip.addLocalFolder('./style', 'style')
   zip.writeZip(`./build/zh-translator-v${manifest.version}.zip`)
 }
 
-run()
+zipSync()
+
+
+if (process.env.NODE_ENV === 'development') {
+  zlib.unzip('./build/zh-translator-v0.0.1.zip', (err) => {
+    if (err) {
+      console.error(err)
+    }
+  })
+}

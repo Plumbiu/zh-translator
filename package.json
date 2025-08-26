@@ -1,10 +1,11 @@
 {
-  "name": "zh-translator-monorepo",
+  "name": "ai-translator",
   "version": "0.0.1",
   "description": "ai translator extension",
   "type": "module",
   "scripts": {
     "build": "tsup",
+    "postbuild": "esno scripts/zip.ts",
     "dev": "tsup --watch",
     "test": "vitest"
   },

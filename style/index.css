@@ -1,0 +1,91 @@
+.__translate__float__ {
+  all: revert;
+  user-select: none;
+  line-height: 1.55;
+  position: absolute;
+  z-index: 999999;
+  display: none;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  transform: translateY(-12px);
+  max-width: 300px;
+}
+
+.__translate__float__slot {
+  all: revert;
+  display: none;
+  color: lightyellow !important;
+  padding: 10px 12px;
+  background-color: #353c43 !important;
+  box-shadow: 4px 4px 12px #f8f8ff;
+  gap: 8px;
+  max-height: 50vh;
+  overflow: auto;
+  border-radius: 6px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.__translate__float__button {
+  all: revert;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: #4B8BF5;
+  background-color: inherit;
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 150ms;
+}
+
+.__translate__float__button:hover {
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
+}
+
+.__translate__float__button svg {
+  all: revert;
+  width: 20px;
+  height: 20px;
+}
+
+.__translate__float__slot svg {
+  all: revert;
+  color: lightyellow !important;
+  width: 18px;
+  height: 18px;
+}
+
+.__translate__float__select {
+  font-size: 13px !important;
+  color: #eee !important;
+  background-color: transparent !important;
+  height: 24px !important;
+  line-height: 24px !important;
+  outline: 1px solid #6c7173 !important;
+  margin-bottom: 8px !important;
+  border: none !important;
+  cursor: pointer;
+  padding: 0 4px !important;
+  transition: color 150ms;
+}
+
+.__translate__float__select:hover {
+  background-color: transparent !important;
+  color: white !important;
+}
+
+.__translate__float__select_container {
+  all: revert;
+  appearance: none !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.__translate__float__select_source {
+  position: relative;
+  margin-right: 8px !important;
+}

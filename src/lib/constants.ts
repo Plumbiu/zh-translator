@@ -1,1 +1,0 @@
-export const EnRegx = /\w+/
