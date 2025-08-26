@@ -15,7 +15,7 @@ export const SelectTargetLanguageHtml = supportsLanguages
     const selected = label === localeDisplayName
     return `<option ${
       selected ? 'selected' : ''
-    } value="${language}">${label}</option>`
+    } value="${language}">${label} (${language})</option>`
   })
   .join('')
 
@@ -24,7 +24,7 @@ export const SelectSourceLanguageHtml =
   supportsLanguages
     .map((language) => {
       const label = getLocalName(language)
-      return `<option value="${language}">${label}</option>`
+      return `<option value="${language}">${label} (${language})</option>`
     })
     .join('')
 
