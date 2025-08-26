@@ -48,8 +48,12 @@ export const supportsLanguages = [
   'ta', // 泰米尔语
 ]
 
-export const intlDisplayNames = new Intl.DisplayNames(supportsLanguages, { type: 'language' })
-export const localeDisplayName = new Intl.DisplayNames([navigator.language], { type: 'language' }).of(navigator.language)
+export const intlDisplayNames = new Intl.DisplayNames(supportsLanguages, {
+  type: 'language',
+})
+export const localeDisplayName = new Intl.DisplayNames([navigator.language], {
+  type: 'language',
+}).of(navigator.language)
 
 export const getLocalName = (locale: string) => {
   return intlDisplayNames.of(locale) || locale

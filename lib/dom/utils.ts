@@ -1,6 +1,16 @@
-import { getLastSelection, setFloatVisible, setLastSelection, setTranslateWord } from "../glbal-variables"
-import { floatDom, floatButtonDom, floatSlotDom, floatSlotResultDom } from "./create"
-import { ButtonHtml } from "./html"
+import {
+  getLastSelection,
+  setFloatVisible,
+  setLastSelection,
+  setTranslateWord,
+} from '../glbal-variables'
+import {
+  floatDom,
+  floatButtonDom,
+  floatSlotDom,
+  floatSlotResultDom,
+} from './create'
+import { ButtonHtml } from './html'
 
 export function setFloatPosition() {
   const selection = getLastSelection() ?? window.getSelection()
@@ -19,7 +29,7 @@ export function setFloatPosition() {
       floatDom.style.left = `${rect.left + window.scrollX + rect.width / 2}px`
       showFloatButton()
     }
-  } catch (error) { }
+  } catch (error) {}
 }
 
 export function hideFloat() {
