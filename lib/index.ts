@@ -1,1 +1,2 @@
-import './dom/create'
+import './dom/init'
+import './dom/event'

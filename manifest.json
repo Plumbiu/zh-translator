@@ -17,6 +17,9 @@
     "service_worker": "./dist/service_worker.js",
     "type": "module"
   },
+  "permissions": [
+    "tabs"
+  ],
   "content_scripts": [
     {
       "matches": [

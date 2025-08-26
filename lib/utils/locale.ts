@@ -1,6 +1,5 @@
-export const SelectAutoDetectValue = 'auto'
-
-// copy from hhttps://github.com/daidr/fancy-translator/blob/main/src/constants/lang.ts
+// copy from https://github.com/daidr/fancy-translator/blob/main/src/constants/lang.ts
+// LICENSE file: https://github.com/daidr/fancy-translator/blob/main/LICENSE
 export const supportsLanguages = [
   'zh-Hans', // 简体中文
   'zh-Hant', // 繁体中文

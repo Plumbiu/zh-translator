@@ -1,5 +1,6 @@
-import { SelectAutoDetectValue } from './constants'
+import { SelectAutoDetectValue } from './constans/variables'
 import { TranslateTypeEnum } from './types'
+import { detectLanguage, translate } from './utils/translate'
 
 chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
   const word = request.word?.trim()
@@ -8,19 +9,21 @@ chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
   } else if (request.type === TranslateTypeEnum.Translate) {
     const sourceLanguage = request.sourceLanguage || SelectAutoDetectValue
     const targetLanguage = request.targetLanguage || navigator.language
+    if (sourceLanguage === targetLanguage) {
+      // same language, reponse original word
+      sendResponse({
+        type: TranslateTypeEnum.Translate,
+        translation: word,
+      })
+      return true
+    }
     ;(async () => {
       try {
-        if (!word) {
-          sendResponse({ translation: '' })
-          return
-        }
         if (sourceLanguage !== SelectAutoDetectValue) {
-          const translator = await Translator.create({
-            sourceLanguage,
+          const translatorResult = await translate(word, {
+            sourceLanguage: navigator.language,
             targetLanguage,
           })
-
-          const translatorResult = await translator.translate(word)
           sendResponse({
             type: TranslateTypeEnum.Translate,
             translation: translatorResult,
@@ -28,30 +31,29 @@ chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
         } else {
           const detectorAvailability = await LanguageDetector.availability()
           if (detectorAvailability === 'available') {
-            const detector = await LanguageDetector.create()
             // most likely language
-            const detectorResult = (await detector.detect(word))[0]
+            const detectorResult = await detectLanguage(word)
             if (!detectorResult.detectedLanguage) {
-              throw new Error('未找到翻译')
+              throw new Error('Unknown language')
             }
-            const translator = await Translator.create({
+            const translatorResult = await translate(word, {
               sourceLanguage: detectorResult.detectedLanguage,
               targetLanguage,
             })
-
-            const translatorResult = await translator.translate(word)
             sendResponse({
               type: TranslateTypeEnum.Translate,
               translation: translatorResult,
               sourceLanguage: detectorResult.detectedLanguage,
             })
+          } else if (detectorAvailability === 'downloading') {
+            console.log('downloading')
           }
         }
       } catch (error: any) {
         sendResponse({
           type: TranslateTypeEnum.Translate,
           translation: error.message,
-          error: true,
+          style: 'color: lightred;',
         })
       }
     })()

@@ -1,4 +1,4 @@
-.__translate__float__ {
+.__ai_translator__ {
   all: revert;
   user-select: none;
   line-height: 1.55;
@@ -11,7 +11,7 @@
   max-width: 360px;
 }
 
-.__translate__float__slot {
+.__ai_translator__slot {
   all: revert;
   display: none;
   color: lightyellow !important;
@@ -25,7 +25,7 @@
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.__translate__float__button {
+.__ai_translator__button {
   all: revert;
   display: none;
   justify-content: center;
@@ -41,54 +41,54 @@
   transition: box-shadow 150ms;
 }
 
-.__translate__float__button:hover {
+.__ai_translator__button:hover {
   box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15);
 }
 
-.__translate__float__button svg {
+.__ai_translator__button svg {
   all: revert;
   width: 20px;
   height: 20px;
 }
 
-.__translate__float__slot_result svg {
+.__ai_translator__slot_result svg {
   all: revert;
-  display: block !important;
-  color: lightyellow !important;
+  display: block;
+  color: lightyellow;
   width: 18px;
   height: 18px;
 }
 
-.__translate__float__select {
-  font-size: 13px !important;
-  color: #eee !important;
-  background-color: transparent !important;
-  height: 24px !important;
-  line-height: 24px !important;
-  outline: 1px solid #6c7173 !important;
-  border: none !important;
+.__ai_translator__select {
+  font-size: 13px;
+  color: #eee;
+  background-color: transparent;
+  height: 24px;
+  line-height: 24px;
+  outline: 1px solid #6c7173;
+  border: none;
   cursor: pointer;
-  padding: 0 4px !important;
+  padding: 0 4px;
   transition: color 150ms;
   max-width: 160px;
   border-radius: 4px;
 }
 
-.__translate__float__select:hover {
-  background-color: transparent !important;
-  color: white !important;
+.__ai_translator__select:hover {
+  background-color: transparent;
+  color: white;
 }
 
-.__translate__float__select_container {
+.__ai_translator__select_container {
   all: revert;
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-bottom: 6px !important;
+  margin-bottom: 6px;
 }
 
-.__translate__float__select_arrow_right svg {
-  display: block !important;
-  width: 16px !important;
-  height: 16px !important;
+.__ai_translator__select_arrow_right svg {
+  display: block;
+  width: 16px;
+  height: 16px;
 }

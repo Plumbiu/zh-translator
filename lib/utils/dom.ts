@@ -3,14 +3,14 @@ import {
   setFloatVisible,
   setLastSelection,
   setTranslateWord,
-} from '../glbal-variables'
+} from '../constans/global-variables'
 import {
   floatDom,
   floatButtonDom,
   floatSlotDom,
   floatSlotResultDom,
-} from './create'
-import { ButtonHtml } from './html'
+} from '../dom/init'
+import { ButtonHtml, ButtonLoadingHtml } from '../constans/html'
 
 export function setFloatPosition() {
   const selection = getLastSelection() ?? window.getSelection()
@@ -44,6 +44,7 @@ export function showFloat() {
   hideFloatButton()
   floatSlotDom.style.display = 'block'
   floatDom.style.display = 'block'
+  floatSlotResultDom.innerHTML = ButtonLoadingHtml
 }
 
 export function hideFloatButton() {
