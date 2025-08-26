@@ -1,29 +1,24 @@
 {
   "name": "zh-translator-monorepo",
   "version": "0.0.1",
-  "description": "离线中文翻译库",
+  "description": "ai translator extension",
   "type": "module",
   "scripts": {
-    "test": "vitest",
-    "build": "pnpm -r run build",
-    "script:generate": "esno scripts/index.ts",
-    "dev:extension": "pnpm -F @zh-translator/extension run dev",
-    "build:extension": "pnpm -F @zh-translator/extension run build",
-    "build:zh-translator": "pnpm -F zh-translator run build",
-    "dev:zh-translator": "pnpm -F zh-translator run dev",
-    "dev": "npm-run-all --parallel dev:*"
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest"
   },
   "author": "Plumbiu",
   "license": "MIT",
   "devDependencies": {
+    "@types/adm-zip": "^0.5.7",
+    "@types/chrome": "^0.0.287",
+    "@types/dom-chromium-ai": "^0.0.9",
     "@types/node": "^22.10.2",
+    "adm-zip": "^0.5.16",
     "esno": "^4.8.0",
-    "npm-run-all2": "^7.0.2",
-    "picocolors": "^1.1.1",
-    "terser": "^5.37.0",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2",
-    "unbuild": "^3.0.1",
     "vitest": "^2.1.8"
   }
 }
