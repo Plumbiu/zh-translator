@@ -5,6 +5,19 @@ interface TranslateOptions {
   targetLanguage: string
 }
 
+const sendDownloadProgress = (progress: string, done: boolean) => {
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    if (tabs[0]?.id) {
+      chrome.tabs.sendMessage(tabs[0].id, {
+        type: TranslateTypeEnum.Download,
+        done,
+        progress,
+        style: 'color: lightblue;',
+      })
+    }
+  })
+}
+
 export async function translate(
   word: string,
   { sourceLanguage, targetLanguage }: TranslateOptions,
@@ -13,26 +26,25 @@ export async function translate(
     sourceLanguage,
     targetLanguage,
   })
+  if (translatorCapabilities === 'downloadable') {
+    sendDownloadProgress('Downloading model 0%...', false)
+  }
+  console.log({ translatorCapabilities })
   const translator = await Translator.create({
     sourceLanguage,
     targetLanguage,
     monitor: (monitor) => {
-      if (translatorCapabilities === 'downloading') {
+      if (
+        translatorCapabilities === 'downloading' ||
+        translatorCapabilities === 'downloadable'
+      ) {
         monitor.addEventListener('downloadprogress', (event) => {
-          console.log(event)
-          // 使用 chrome.tabs.sendMessage 向当前活动标签页发送消息
-          chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-            if (tabs[0]?.id) {
-              chrome.tabs.sendMessage(tabs[0].id, {
-                type: TranslateTypeEnum.Download,
-                done: event.total === event.loaded,
-                progress: `Downloading model ${
-                  +(event.loaded / event.total).toFixed(3) * 100
-                }%...`,
-                style: 'color: lightblue;',
-              })
-            }
-          })
+          sendDownloadProgress(
+            `Downloading model ${((event.loaded / event.total) * 100).toFixed(
+              2,
+            )}%...`,
+            false,
+          )
         })
       }
     },
@@ -44,24 +56,22 @@ export async function translate(
 
 export async function detectLanguage(word: string) {
   const detectorCapabilities = await LanguageDetector.availability()
+  if (detectorCapabilities === 'downloadable') {
+    sendDownloadProgress('Downloading model 0%...', false)
+  }
   const detector = await LanguageDetector.create({
     monitor: (monitor) => {
-      if (detectorCapabilities === 'downloading') {
+      if (
+        detectorCapabilities === 'downloading' ||
+        detectorCapabilities === 'downloadable'
+      ) {
         monitor.addEventListener('downloadprogress', (event) => {
-          console.log(event)
-          // 使用 chrome.tabs.sendMessage 向当前活动标签页发送消息
-          chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-            if (tabs[0]?.id) {
-              chrome.tabs.sendMessage(tabs[0].id, {
-                type: TranslateTypeEnum.Download,
-                done: event.total === event.loaded,
-                progress: `Downloading model ${
-                  +(event.loaded / event.total).toFixed(3) * 100
-                }%...`,
-                style: 'color: lightblue;',
-              })
-            }
-          })
+          sendDownloadProgress(
+            `Downloading model ${((event.loaded / event.total) * 100).toFixed(
+              2,
+            )}%...`,
+            false,
+          )
         })
       }
     },
