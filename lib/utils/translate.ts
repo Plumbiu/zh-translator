@@ -43,7 +43,7 @@ export async function translate(
             `Downloading model ${((event.loaded / event.total) * 100).toFixed(
               2,
             )}%...`,
-            false,
+            event.loaded === event.total,
           )
         })
       }
@@ -70,7 +70,7 @@ export async function detectLanguage(word: string) {
             `Downloading model ${((event.loaded / event.total) * 100).toFixed(
               2,
             )}%...`,
-            false,
+            event.loaded === event.total,
           )
         })
       }
